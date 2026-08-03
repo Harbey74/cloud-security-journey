@@ -1,0 +1,8 @@
+Project SkyShield
+
+AWS Module 1
+Amazon S3 Lab
+
+This is my first object uploaded to Amazon S3 using the AWS CLI.
+
+Date:1st August, 2026
