@@ -287,3 +287,4 @@ Lifecycle Policies automate storage management according to organizational requi
 - Lifecycle Policies support governance and cost optimization.
 - Security decisions should be based on business requirements and data classification.
 - Always think in terms of Defense in Depth rather than relying on a single security control.
+- Objects smaller than 128 KB won't automatically transition to another storage class by default in lifecycle policy

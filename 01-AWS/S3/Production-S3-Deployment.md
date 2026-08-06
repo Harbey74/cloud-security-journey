@@ -33,3 +33,44 @@ aws s3api put-bucket-tagging --bucket skyshield-abiodun-2026 --tagging "TagSet=[
 - Versioning is disabled by default.
 - Encryption should be enabled by default.
 - Governance tags simplify resource management.
+
+## Final Security Baseline
+
+- Block Public Access enabled
+- Default Encryption (SSE-S3)
+- Versioning enabled
+- Resource tagging applied
+- Lifecycle policy configured:
+  - Transition to Standard-IA after 90 days
+  - Transition to Glacier Flexible Retrieval after 365 days
+  - No automatic deletion
+
+## Validation
+
+Every security control was validated using the AWS CLI after implementation.
+
+No configuration was assumed to be correct without verification.
+
+                S3 Bucket
+         skyshield-abiodun-2026
+                     │
+     ┌───────────────┼────────────────┐
+     │               │                │
+ Block Public   Default SSE-S3    Versioning
+    Access        Encryption       Enabled
+     │               │                │
+     └───────────────┼────────────────┘
+                     │
+             Lifecycle Policy
+                     │
+       Day 0 ─────────► S3 Standard
+                     │
+             After 90 Days
+                     ▼
+              S3 Standard-IA
+                     │
+            After 365 Days
+                     ▼
+      Glacier Flexible Retrieval
+                     │
+             Retained Indefinitely
