@@ -54,4 +54,9 @@ aws s3api get-bucket-tagging --bucket skyshield-abiodun-2026 --profile skyshield
 ## Set bucket tags
 aws s3api put-bucket-tagging --bucket skyshield-abiodun-2026 --tagging "TagSet=[{Key=Project,Value=Skyshield},{Key=Environment,Value=Lab},{Key=Owner,Value=Abiodun},{Key=Purpose,Value=CloudSecurityLearning}]" --profile skyshield
 
+## Set lifecycle policy for s3 bucket
+aws s3api put-bucket-lifecycle-configuration --bucket skyshield-abiodun-2026 --lifecycle-configuration file://JSON/s3-lifecycle-policy.json --profile skyshield
+
+## Get lifecycle policy for s3 bucket
+aws s3api get-bucket-lifecycle-configuration --bucket skyshield-abiodun-2026 --profile skyshield
 
