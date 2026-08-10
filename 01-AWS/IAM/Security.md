@@ -274,43 +274,343 @@ Users inherit permissions from their groups.
 - Least Privilege reduces attack surface.
 
 
+## Permission Policy vs Trust Policy
+
+                IAM Role
+           +-----------------+
+           |                 |
+           | Permission      |
+           | Policy          |
+           |                 |
+           | "What can       |
+           | I do?"          |
+           +-----------------+
+
+                    ▲
+
+           +-----------------+
+           |                 |
+           | Trust Policy    |
+           |                 |
+           | "Who can        |
+           | assume me?"     |
+           +-----------------+
+
+
+A principal must first be trusted to assume the role, and once the role has been assumed, the role must contain the permissions required to perform the requested action on the target resource.
+
+
+EC2 instances attach to an Instance Profile, not directly to an IAM Role.
+
+IAM Roles reduce secret management risk because temporary credentials are issued dynamically by AWS STS to trusted workloads, eliminating the need to store long-lived access keys on compute instances or in application code.
 
 
 
 
+## IAM Roles, Trust Policies, Temporary Credentials and Workload Identity
 
+### IAM Roles
 
+IAM Roles provide temporary, assumable identities that AWS services, applications, and other trusted entities can use to access AWS resources.
 
+Unlike IAM Users, roles are not intended to have permanent credentials such as long-lived access keys. A role becomes useful when a trusted entity assumes it and receives temporary security credentials through AWS Security Token Service (STS).
 
+Roles are particularly important for AWS workloads such as EC2 instances because they eliminate the need to store long-lived access keys on the instance.
 
+### Trust Policy vs Permission Policy
 
+An IAM Role has two distinct security components:
 
-# Amazon IAM Security
+* **Trust Policy** — determines **who or what is allowed to assume the role**.
+* **Permission Policy** — determines **what the role is allowed to do after it has been assumed**.
 
-Good identity management must scale as the organization grows.
-Explicit Deny always overrides Allow.
+This creates two separate stages in the authorization process.
 
-Permissions should be based on job function, not on individual people.
+For example:
 
-## IAM Role
-It's an identity that can be assumed by a trusted entity.
-Never hard-code AWS credentials. Whenever possible, use an IAM Role.
+```text
+EC2 requests to assume role
+        ↓
+Trust Policy evaluation
+        ↓
+Is EC2 trusted?
+        ↓
+Yes
+        ↓
+STS issues temporary credentials
+        ↓
+Application makes AWS API request
+        ↓
+Permission Policy evaluation
+        ↓
+Is the requested action allowed?
+        ↓
+Allow / Deny
+```
 
-Why Temporary Credentials Matter
+A trusted principal does not automatically receive permissions to access AWS resources. The role must also have the required permission policies attached.
 
-Suppose an attacker somehow obtains temporary credentials.
+### Trust Policy Structure
 
-Unlike long-lived access keys:
+A typical EC2 trust policy contains:
 
-They expire automatically.
-They can't be used indefinitely.
-There's no secret key stored in your application configuration.
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "ec2.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+```
 
-That's a significant reduction in risk.
+Key elements:
 
-| Identity  | Used For                                                         |
-| --------- | ---------------------------------------------------------------- |
-| IAM User  | Individual people (mainly for learning and smaller environments) |
-| IAM Group | Managing permissions for collections of users                    |
-| IAM Role  | AWS services, applications, and temporary access                 |
+* **Version** — identifies the IAM policy language version.
+* **Statement** — contains the policy rules.
+* **Effect** — specifies whether the statement allows or denies the action. In the role trust policy used in the lab, this was `Allow`.
+* **Principal** — identifies who or what is trusted to assume the role. This can be an AWS service, AWS account, federated identity, or other supported principal.
+* **Action** — specifies the operation being permitted. For role assumption, this is typically `sts:AssumeRole`.
+
+The `Principal` in a trust policy is fundamentally different from the `Resource` element used in a permission policy. The trust policy answers **who can assume the role**, while the permission policy answers **what the assumed identity can access**.
+
+### Authentication vs Authorization
+
+The IAM Role lab reinforced the distinction between authentication and authorization.
+
+**Authentication** answers:
+
+> Who are you, or what identity are you operating as?
+
+**Authorization** answers:
+
+> What are you allowed to do?
+
+For an EC2 workload:
+
+```text
+Trust Policy
+    ↓
+Allows EC2 to assume the role
+    ↓
+STS provides temporary credentials
+    ↓
+Authentication established
+    ↓
+Permission Policy evaluates requested action
+    ↓
+Authorization decision
+```
+
+A workload can successfully assume a role but still be denied access to an AWS resource if the role lacks the required permission.
+
+### Explicit Allow, Explicit Deny and Implicit Deny
+
+AWS IAM policy evaluation follows an important principle:
+
+* An **explicit Deny** overrides an Allow.
+* An **explicit Allow** grants the requested permission when applicable.
+* If no applicable Allow exists, the request is denied by the default **implicit deny**.
+
+For example, if an EC2 role can assume successfully but has no policy allowing `s3:ListBucket`, the request is denied even though there is no explicit Deny.
+
+This distinction was demonstrated during the EC2-to-S3 lab.
+
+### Instance Profiles
+
+EC2 instances do not attach an IAM Role directly. Instead, an **IAM Instance Profile** acts as the mechanism through which an EC2 instance receives an IAM Role.
+
+The relationship can be represented as:
+
+```text
+IAM Role
+   ↓
+Instance Profile
+   ↓
+EC2 Instance
+```
+
+When a role is created through the AWS CLI, the Instance Profile may need to be created separately and the role added to it.
+
+Commands used during the lab included:
+
+```bash
+aws iam create-instance-profile
+```
+
+and:
+
+```bash
+aws iam add-role-to-instance-profile
+```
+
+This distinction is important because the EC2 console expects an Instance Profile rather than the raw IAM Role.
+
+### AWS STS Temporary Credentials
+
+AWS Security Token Service (STS) provides temporary security credentials when an identity assumes an IAM Role.
+
+Temporary credentials contain:
+
+* Access Key ID
+* Secret Access Key
+* Session Token
+* Expiration time
+
+These credentials are different from IAM User access keys because they are time-limited and automatically managed by AWS.
+
+The EC2 workload therefore does not need permanent AWS credentials stored in:
+
+```text
+~/.aws/credentials
+```
+
+This significantly reduces the risk associated with credential leakage and long-lived secrets.
+
+### EC2 Instance Metadata Service (IMDS)
+
+EC2 instances can obtain information and temporary role credentials through the Instance Metadata Service (IMDS).
+
+The metadata service is available from within the EC2 instance through the link-local address:
+
+```text
+169.254.169.254
+```
+
+During the lab, IMDS was queried using IMDSv2 and returned the credentials associated with:
+
+```text
+ChurchEC2S3Role
+```
+
+The response included an expiration timestamp, demonstrating that the credentials are temporary.
+
+### IMDSv2
+
+IMDSv2 introduces a session-oriented mechanism for accessing instance metadata.
+
+The workflow used during the lab was:
+
+```text
+Request IMDSv2 token
+        ↓
+Use token in metadata request
+        ↓
+Retrieve role information
+        ↓
+Retrieve temporary credentials
+```
+
+IMDSv2 is an important security control because it helps reduce the risk associated with certain SSRF-based attacks against the instance metadata service.
+
+### IAM Roles and Least Privilege
+
+IAM Roles should follow the Principle of Least Privilege.
+
+During the lab, the EC2 role was intentionally granted only:
+
+```text
+s3:ListBucket
+s3:GetObject
+s3:PutObject
+```
+
+for the specific S3 bucket:
+
+```text
+arn:aws:s3:::skyshield-abiodun-2026
+```
+
+and its objects:
+
+```text
+arn:aws:s3:::skyshield-abiodun-2026/*
+```
+
+`s3:DeleteObject` was deliberately excluded because deletion was not required for the workload.
+
+This limits the blast radius if the EC2 instance, application, or credentials are compromised.
+
+### IAM Roles vs Long-Lived Access Keys
+
+For AWS workloads, IAM Roles are preferable to embedding IAM User access keys in applications or EC2 instances.
+
+**Long-lived access key approach:**
+
+```text
+Application
+    ↓
+Access Key + Secret Key
+    ↓
+AWS
+```
+
+Risks include:
+
+* Accidental exposure
+* Credentials committed to source control
+* Credential theft
+* Difficult rotation
+* Larger operational overhead
+* Increased blast radius if compromised
+
+**IAM Role approach:**
+
+```text
+EC2
+ ↓
+Instance Profile
+ ↓
+IAM Role
+ ↓
+STS
+ ↓
+Temporary Credentials
+ ↓
+AWS API
+```
+
+This approach reduces secret-management overhead and allows permissions to be centrally managed through the role.
+
+### Defense in Depth
+
+The EC2 IAM Role implementation demonstrated multiple security controls working together:
+
+```text
+Trusted Principal
+        +
+IAM Role
+        +
+Least-Privilege Permission Policy
+        +
+Resource-Level Restrictions
+        +
+Temporary Credentials
+        +
+IMDSv2
+        =
+Reduced Attack Surface and Blast Radius
+```
+
+No single control provides complete security. Combining these controls creates a stronger security architecture.
+
+### Key Takeaways
+
+* IAM Roles provide identities for AWS workloads without requiring long-lived credentials.
+* Trust policies determine **who can assume a role**.
+* Permission policies determine **what the assumed role can do**.
+* Successfully assuming a role does not automatically grant resource access.
+* EC2 uses an Instance Profile to associate an IAM Role with an instance.
+* STS provides temporary credentials for assumed-role sessions.
+* IMDS provides role credentials to workloads running on EC2.
+* IMDSv2 adds an important security layer around metadata access.
+* Least privilege should be applied to both actions and resources.
+* Explicit Deny overrides Allow, while the absence of an applicable Allow results in implicit Deny.
+* IAM Roles significantly reduce the need to manage long-lived credentials on AWS workloads.
+                |
 

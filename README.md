@@ -1,6 +1,6 @@
 # ☁️ Project SkyShield – Cloud Security Engineer Journey
 
-> A structured, hands-on roadmap to becoming a Cloud Security Engineer through real-world projects, automation, infrastructure as code, and cloud security best practices.
+> A structured, hands-on journey toward becoming a Cloud Security Engineer through AWS, Linux, automation, Infrastructure as Code, security engineering, and practical projects.
 
 ---
 
@@ -8,45 +8,110 @@
 
 This repository documents my journey toward becoming a Cloud Security Engineer.
 
-Instead of focusing only on certifications, this repository emphasizes:
+Rather than focusing only on certifications, Project SkyShield emphasizes **hands-on learning, practical implementation, security-first thinking, and continuous documentation**.
 
-- Building secure cloud environments
-- Learning through hands-on projects
-- Documenting concepts and lessons learned
-- Automating cloud operations
-- Applying security best practices
-- Developing a professional portfolio
+The journey focuses on:
 
-Everything in this repository is created as part of continuous learning and practical experience.
+* Building and securing cloud environments
+* Learning through practical labs and projects
+* Applying cloud security principles
+* Automating cloud operations
+* Infrastructure as Code
+* Identity and access management
+* Cloud networking and security
+* Security monitoring and detection
+* Documenting technical decisions and lessons learned
+
+Everything in this repository is developed as part of continuous learning and practical experience.
 
 ---
 
 ## 🎯 Goals
 
-- Master AWS cloud fundamentals
-- Develop strong Linux and networking skills
-- Learn Infrastructure as Code (Terraform)
-- Automate cloud tasks with Python
-- Implement cloud security best practices
-- Build a portfolio of real-world cloud security projects
-- Prepare for Cloud Security Engineer roles
+* Master AWS cloud fundamentals
+* Develop strong Linux and networking skills
+* Build practical cloud security engineering skills
+* Apply the Principle of Least Privilege
+* Learn Infrastructure as Code with Terraform
+* Automate cloud operations using Python
+* Build secure and scalable cloud architectures
+* Develop security monitoring and detection capabilities
+* Build a professional cloud security portfolio
+* Prepare for Cloud Security Engineer roles
 
 ---
 
 ## 🛣️ Learning Roadmap
 
-| Phase | Status |
-|--------|--------|
-| AWS Fundamentals | 🟢 In Progress |
-| Linux Fundamentals | 🟢 In Progress |
-| Python Automation | ⏳ Planned |
-| Git & GitHub | 🟢 In Progress |
-| Terraform | ⏳ Planned |
-| Docker | ⏳ Planned |
-| Kubernetes | ⏳ Planned |
-| Cloud Security | ⏳ Planned |
-| SIEM & Detection Engineering | ⏳ Planned |
-| CI/CD Security | ⏳ Planned |
+| Phase   | Focus                                | Status         |
+| ------- | ------------------------------------ | -------------- |
+| Phase 1 | AWS Foundations                      | 🟢 In Progress |
+| Phase 2 | Automation & Infrastructure as Code  | ⏳ Planned      |
+| Phase 3 | AWS Cloud Security                   | ⏳ Planned      |
+| Phase 4 | Cloud Security Engineering           | ⏳ Planned      |
+| Phase 5 | Security Automation & Projects       | ⏳ Planned      |
+| Phase 6 | Portfolio & Professional Development | ⏳ Planned      |
+
+For the detailed roadmap, see [`ROADMAP.md`](ROADMAP.md).
+
+---
+
+## 🚀 Current Progress
+
+### ✅ Completed
+
+**AWS Account Security**
+
+* Root account MFA
+* IAM administrator account
+* IAM user MFA
+* AWS CLI configuration
+* AWS Budget
+* Cost Anomaly Detection
+
+**Amazon S3**
+
+* S3 bucket creation and configuration
+* Block Public Access
+* Server-side encryption
+* Versioning
+* Lifecycle policies
+* Storage classes
+* S3 access control
+* AWS CLI operations
+
+**IAM**
+
+* IAM users and groups
+* Customer-managed policies
+* IAM policy structure
+* Policy evaluation logic
+* Explicit vs implicit deny
+* Principle of Least Privilege
+* IAM access keys
+* IAM roles
+* Trust policies
+* IAM permission policies
+* Instance profiles
+* STS temporary credentials
+* EC2 IAM roles
+* EC2 → S3 role-based access
+
+### 🔄 Current Focus
+
+**EC2 and VPC Fundamentals**
+
+Current learning areas include:
+
+* EC2 architecture
+* Security Groups
+* Key Pairs
+* VPC architecture
+* Subnets
+* Route tables
+* Internet Gateways
+* NAT Gateways
+* Network security
 
 ---
 
@@ -54,7 +119,14 @@ Everything in this repository is created as part of continuous learning and prac
 
 ```text
 00-Notes/
+├── Commands/
+└── Weekly-Journal/
+
 01-AWS/
+├── IAM/
+├── S3/
+└── JSON/
+
 02-Linux/
 03-Python/
 04-Git-GitHub/
@@ -72,30 +144,60 @@ Resources/
 
 ---
 
-## 🚀 Projects
+## 🧪 Practical Labs
 
-| Project | Status |
-|----------|--------|
-| Project 001 – AWS Secure Account Baseline | ✅ Completed |
-| Project 002 – Amazon S3 Fundamentals | 🚧 In Progress |
-| Project 003 – IAM Security | ⏳ Planned |
-| Project 004 – VPC Networking | ⏳ Planned |
-| Project 005 – CloudTrail Logging | ⏳ Planned |
+Project SkyShield is built around practical implementation rather than theory alone.
+
+| Lab / Project                     | Status         |
+| --------------------------------- | -------------- |
+| AWS Account Security Baseline     | ✅ Completed    |
+| Amazon S3 Fundamentals            | ✅ Completed    |
+| IAM Users & Groups                | ✅ Completed    |
+| IAM Policies & Least Privilege    | ✅ Completed    |
+| IAM Roles & Temporary Credentials | ✅ Completed    |
+| EC2 IAM Role → S3 Access          | ✅ Completed    |
+| EC2 Fundamentals                  | 🚧 In Progress |
+| VPC Networking                    | ⏳ Planned      |
+| CloudTrail Logging                | ⏳ Planned      |
+| GuardDuty Detection               | ⏳ Planned      |
+| Security Hub                      | ⏳ Planned      |
+| Security Automation               | ⏳ Planned      |
 
 ---
 
 ## 🛠️ Technologies
 
-- AWS
-- Linux
-- Python
-- Git
-- GitHub
-- Terraform
-- Docker
-- Kubernetes
-- Bash
-- PowerShell
+### Cloud
+
+* AWS
+
+### Operating Systems & Scripting
+
+* Linux
+* Bash
+* PowerShell
+* Python
+
+### Infrastructure & Automation
+
+* Terraform
+* AWS CLI
+* Docker
+* Kubernetes
+
+### Version Control
+
+* Git
+* GitHub
+
+### Security
+
+* IAM
+* CloudTrail
+* GuardDuty
+* Security Hub
+* SIEM
+* Detection Engineering
 
 ---
 
@@ -103,40 +205,79 @@ Resources/
 
 This repository is supported by learning from:
 
-- AWS Documentation
-- Adrian Cantrill
-- HashiCorp Learn
-- OverTheWire Bandit
-- Professor Messer
-- FreeCodeCamp
-- Pwned Labs
-- CloudGoat
-- KillerCoda
+* AWS Documentation
+* Adrian Cantrill
+* HashiCorp Learn
+* OverTheWire Bandit
+* Professor Messer
+* FreeCodeCamp
+* Pwned Labs
+* CloudGoat
+* KillerCoda
 
 ---
 
-## 📈 Progress
+## 📈 Project Documentation
 
-Current milestone:
+The repository maintains several documents to track the development of Project SkyShield:
 
-✅ AWS Account Security Baseline completed.
-
-Current focus:
-
-Learning AWS CLI and Amazon S3.
+| Document                       | Purpose                                             |
+| ------------------------------ | --------------------------------------------------- |
+| [`ROADMAP.md`](ROADMAP.md)     | Long-term learning roadmap                          |
+| [`PROGRESS.md`](PROGRESS.md)   | Completed milestones and skills                     |
+| [`CHANGELOG.md`](CHANGELOG.md) | Major project changes and milestones                |
+| `00-Notes/Weekly-Journal/`     | Weekly reflections and lessons                      |
+| `00-Notes/Commands/`           | AWS and technical command references                |
+| `01-AWS/`                      | AWS labs, architecture, security and implementation |
 
 ---
 
-## 📝 Weekly Journal
+## 📓 Weekly Journal
 
-Weekly progress and reflections are documented in:
+Weekly progress, lessons learned, challenges, and reflections are documented in:
 
+```text
+00-Notes/Weekly-Journal/
 ```
-00-Notes/Weekly-Journal
-```
+
+---
+
+## 🔐 Security Philosophy
+
+Project SkyShield follows security-first principles throughout the learning journey:
+
+* Principle of Least Privilege
+* Strong authentication
+* MFA for privileged accounts
+* Prefer temporary credentials over long-lived credentials
+* Role-based access control
+* Secure-by-default configurations
+* Explicit permission management
+* Defense in depth
+* Continuous validation and testing
+* Automation where appropriate
+* Documented security decisions
+
+---
+
+## 📌 Current Milestone
+
+**Phase 1 – AWS Foundations**
+
+### Completed
+
+* AWS Account Security Baseline
+* Amazon S3 Fundamentals
+* IAM Users, Groups and Policies
+* IAM Roles and Temporary Credentials
+* EC2 IAM Role Integration
+
+### Next
+
+**EC2 and VPC Fundamentals → Network Security → Cloud Security Monitoring**
 
 ---
 
 ## 📄 License
 
-This repository is maintained as part of my personal learning journey and portfolio.
+This repository is maintained as part of my personal learning journey and professional portfolio.

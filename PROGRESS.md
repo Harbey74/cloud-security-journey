@@ -4,72 +4,185 @@
 
 ### Development Environment
 
-- [x] VS Code Installed
-- [x] Git Installed
-- [x] Python Installed
-- [x] Terraform Installed
-- [x] AWS CLI Installed
+* [x] VS Code Installed
+* [x] Git Installed
+* [x] Python Installed
+* [x] Terraform Installed
+* [x] AWS CLI Installed
 
 ### AWS Account
 
-- [x] Created AWS Account
-- [x] Enabled Root MFA
-- [x] Created IAM Administrator User
-- [x] Enabled IAM User MFA
-- [x] Configured AWS CLI
-- [x] Created AWS Budget
-- [x] Enabled Cost Anomaly Detection
+* [x] Created AWS Account
+* [x] Enabled Root MFA
+* [x] Created IAM Administrator User
+* [x] Enabled IAM User MFA
+* [x] Configured AWS CLI
+* [x] Created AWS Budget
+* [x] Enabled Cost Anomaly Detection
 
+---
 
 ## Milestone 1 – Amazon S3 Fundamentals ✅
 
 ### Completed
 
-- [x] Created first S3 bucket
-- [x] Enabled Block Public Access
-- [x] Enabled Default Encryption (SSE-S3)
-- [x] Enabled Versioning
-- [x] Configured Lifecycle Policy
-- [x] Added Bucket Tags
-- [x] Uploaded and Downloaded Objects
-- [x] Verified Bucket Configuration
+* [x] Created first S3 bucket
+* [x] Enabled Block Public Access
+* [x] Enabled Default Encryption (SSE-S3)
+* [x] Enabled Versioning
+* [x] Configured Lifecycle Policy
+* [x] Added Bucket Tags
+* [x] Uploaded and Downloaded Objects
+* [x] Verified Bucket Configuration
+* [x] Documented S3 Architecture
+* [x] Documented S3 Security Controls
+* [x] Practiced S3 CLI Operations
+* [x] Tested S3 Access Permissions
 
 ### Skills Gained
 
-- Amazon S3
-- Bucket Policies
-- Block Public Access
-- Versioning
-- Lifecycle Policies
-- Server-Side Encryption
-- Storage Classes
-- AWS CLI for S3
+* Amazon S3
+* S3 Buckets and Objects
+* Object Keys and Prefixes
+* Bucket-Level vs Object-Level Permissions
+* Bucket Policies
+* Block Public Access
+* Versioning
+* Lifecycle Policies
+* Server-Side Encryption
+* Storage Classes
+* S3 Access Control
+* AWS CLI for S3
+* S3 Least-Privilege Access
 
+---
 
-## Milestone 2 – IAM Fundamentals ✅
+## Milestone 2 – IAM Users, Groups and Policies ✅
 
 ### Completed
 
-- [x] Created Customer Managed Policy
-- [x] Created IAM Group
-- [x] Attached Policy to Group
-- [x] Created IAM User
-- [x] Added User to Group
-- [x] Created Access Keys
-- [x] Configured Dedicated CLI Profile
-- [x] Validated Least Privilege Permissions
+* [x] Created Customer Managed Policy
+* [x] Created IAM Group
+* [x] Attached Policy to Group
+* [x] Created IAM User
+* [x] Added User to Group
+* [x] Created Access Keys
+* [x] Configured Dedicated CLI Profile
+* [x] Tested IAM User Authentication
+* [x] Validated Group-Based Permissions
+* [x] Tested Allowed Operations
+* [x] Tested Denied Operations
 
 ### Skills Gained
 
-- IAM Users
-- IAM Groups
-- IAM Policies
-- Policy Evaluation Logic
-- Authentication vs Authorization
-- Explicit vs Implicit Deny
-- Principle of Least Privilege
-- Permission Validation
+* IAM Users
+* IAM Groups
+* Customer Managed Policies
+* IAM Policy Structure
+* Policy Evaluation Logic
+* Authentication vs Authorization
+* Explicit Deny
+* Implicit Deny
+* Identity-Based Policies
+* Principle of Least Privilege
+* Access Key Management
+* AWS CLI Profiles
+
+---
+
+## Milestone 3 – IAM Roles and Temporary Credentials ✅
+
+### Completed
+
+* [x] Learned IAM Roles
+* [x] Learned Trust Policies
+* [x] Distinguished Trust Policies from Permission Policies
+* [x] Created EC2 Trust Policy
+* [x] Created IAM Role for EC2
+* [x] Attached S3 Permission Policy to Role
+* [x] Created IAM Instance Profile
+* [x] Attached Role to EC2 Instance
+* [x] Launched Amazon Linux 2023 EC2 Instance
+* [x] Connected to EC2 Using SSH
+* [x] Verified Role Using STS
+* [x] Verified Temporary Credentials Through IMDS
+* [x] Tested EC2 → S3 Access
+* [x] Verified Allowed S3 Operations
+* [x] Verified Denied S3 Operations
+* [x] Confirmed No Long-Lived Access Keys Were Required on EC2
+
+### Skills Gained
+
+* IAM Roles
+* Trust Policies
+* Permission Policies
+* IAM Instance Profiles
+* AWS STS
+* Temporary Credentials
+* EC2 IAM Roles
+* Instance Metadata Service (IMDS)
+* Role Assumption
+* Workload Identity
+* EC2-to-S3 Authorization
+* Least-Privilege Workload Access
+
+---
+
+## Phase 1 Security Concepts Completed
+
+* [x] Authentication vs Authorization
+* [x] IAM Policy Evaluation
+* [x] Explicit vs Implicit Deny
+* [x] Principle of Least Privilege
+* [x] Identity-Based Policies
+* [x] Trust Policies
+* [x] Permission Policies
+* [x] IAM Roles
+* [x] Temporary Credentials
+* [x] EC2 Instance Profiles
+* [x] S3 Access Control
+* [x] Block Public Access
+* [x] Workload Identity
+
+---
+
+## Documentation Completed
+
+* [x] S3 Architecture Documentation
+* [x] S3 Security Documentation
+* [x] S3 Production Deployment Documentation
+* [x] IAM Architecture Documentation
+* [x] IAM Security Documentation
+* [x] IAM User and Group Lab Documentation
+* [x] IAM EC2 Role Lab Documentation
+* [x] IAM Policy JSON Files
+* [x] S3 Lifecycle Policy JSON
+* [x] S3 Command Reference
+* [x] IAM Command Reference
+
+---
 
 ## Current Objective
 
-➡️ Learn IAM Roles and Temporary Credentials
+### Milestone 4 – EC2 and VPC Fundamentals
+
+* [x] Launch Amazon Linux 2023 EC2 Instance
+* [x] Connect to EC2 Using SSH
+* [x] Understand IAM Role Association
+* [ ] Understand EC2 Instance Architecture
+* [ ] Understand Security Groups
+* [ ] Understand Key Pairs
+* [ ] Understand Elastic IPs
+* [ ] Understand VPC Architecture
+* [ ] Understand Subnets
+* [ ] Understand Route Tables
+* [ ] Understand Internet Gateways
+* [ ] Understand NAT Gateways
+
+### Next Security Focus
+
+* [ ] EC2 Security Groups
+* [ ] Network Segmentation
+* [ ] VPC Security
+* [ ] Private vs Public Subnets
+* [ ] Secure EC2 Architecture

@@ -20,3 +20,7 @@ Thumbs.db
 
 # workspace
 *.code-workspace
+
+# IAM lab test files
+01-AWS/volunteer-*.txt
+01-AWS/S3/lab1.txt
