@@ -4,6 +4,25 @@
 
 ---
 
+## Quick Navigation
+
+- [About](#-about-this-repository)
+- [What Makes Project SkyShield Different](#-what-makes-project-skyshield-different)
+- [Goals](#-goals)
+- [Learning Roadmap](#-learning-roadmap)
+- [Current Progress](#-current-progress)
+- [Repository Structure](#-repository-structure)
+- [Practical Labs](#-practical-labs)
+- [Technologies](#-technologies)
+- [Learning Resources](#-learning-resources)
+- [Project Documentation](#-project-documentation)
+- [Weekly Journal](#-weekly-journal)
+- [Security Philosophy](#-security-philosophy)
+- [Current Milestone](#-current-milestone)
+- [Milestone Timeline](#-milestone-timeline)
+
+---
+
 ## 📖 About This Repository
 
 This repository documents my journey toward becoming a Cloud Security Engineer.
@@ -23,6 +42,19 @@ The journey focuses on:
 * Documenting technical decisions and lessons learned
 
 Everything in this repository is developed as part of continuous learning and practical experience.
+
+---
+
+## What Makes Project SkyShield Different?
+
+Every milestone in Project SkyShield is built around four deliverables:
+
+- 🏗️ **Architecture documentation** — Explains how AWS services fit together.
+- 🔐 **Security documentation** — Explains why security controls exist and how they are applied.
+- 💻 **CLI command reference** — Captures the exact commands used during each milestone.
+- 📓 **Weekly engineering reflection** — Documents lessons learned, challenges encountered, and mindset shifts.
+
+The goal is to build not only technical skills but also the documentation, troubleshooting, and decision-making habits expected of Cloud Security Engineers.
 
 ---
 
@@ -60,58 +92,83 @@ For the detailed roadmap, see [`ROADMAP.md`](ROADMAP.md).
 
 ### ✅ Completed
 
-**AWS Account Security**
+#### AWS Account Security
 
-* Root account MFA
-* IAM administrator account
-* IAM user MFA
-* AWS CLI configuration
-* AWS Budget
-* Cost Anomaly Detection
+- Root account MFA
+- IAM administrator account
+- IAM user MFA
+- AWS CLI configuration
+- AWS Budget
+- Cost Anomaly Detection
 
-**Amazon S3**
+#### Amazon S3
 
-* S3 bucket creation and configuration
-* Block Public Access
-* Server-side encryption
-* Versioning
-* Lifecycle policies
-* Storage classes
-* S3 access control
-* AWS CLI operations
+- S3 bucket creation and configuration
+- Block Public Access
+- Server-side encryption
+- Versioning
+- Lifecycle policies
+- Storage classes
+- S3 access control
+- AWS CLI operations
 
-**IAM**
+#### IAM
 
-* IAM users and groups
-* Customer-managed policies
-* IAM policy structure
-* Policy evaluation logic
-* Explicit vs implicit deny
-* Principle of Least Privilege
-* IAM access keys
-* IAM roles
-* Trust policies
-* IAM permission policies
-* Instance profiles
-* STS temporary credentials
-* EC2 IAM roles
-* EC2 → S3 role-based access
+- IAM users and groups
+- Customer-managed policies
+- IAM policy structure
+- Policy evaluation logic
+- Explicit vs Implicit Deny
+- Principle of Least Privilege
+- IAM access keys
+- IAM roles
+- Trust policies
+- IAM permission policies
+- Instance profiles
+- STS temporary credentials
+- EC2 IAM roles
+- EC2 → S3 role-based access
+
+#### EC2
+
+- EC2 architecture
+- Key pairs
+- Elastic Network Interfaces (ENIs)
+- EBS fundamentals
+- Public vs Private IP addressing
+- Security Groups
+- IAM role association
+- DNS resolution
+- IPv4 vs IPv6 connectivity testing
+
+#### VPC Networking Fundamentals
+
+- CIDR and subnetting
+- Default VPC architecture
+- Route tables
+- Internet Gateways
+- NAT Gateways
+- Network ACLs
+- Public vs Private subnets
+- AWS DNS behavior
+- Three-tier architecture design
+- Layered network troubleshooting
+
+---
 
 ### 🔄 Current Focus
 
-**EC2 and VPC Fundamentals**
+## Custom VPC & Network Security
 
 Current learning areas include:
 
-* EC2 architecture
-* Security Groups
-* Key Pairs
-* VPC architecture
-* Subnets
-* Route tables
-* Internet Gateways
-* NAT Gateways
-* Network security
+- Custom VPC implementation
+- Public and private subnets
+- Route tables
+- Internet Gateway deployment
+- NAT Gateway configuration
+- Three-tier architecture
+- Secure network segmentation
 
 ---
 
@@ -123,8 +180,10 @@ Current learning areas include:
 └── Weekly-Journal/
 
 01-AWS/
+├── EC2/
 ├── IAM/
 ├── S3/
+├── VPC/
 └── JSON/
 
 02-Linux/
@@ -148,20 +207,21 @@ Resources/
 
 Project SkyShield is built around practical implementation rather than theory alone.
 
-| Lab / Project                     | Status         |
-| --------------------------------- | -------------- |
-| AWS Account Security Baseline     | ✅ Completed    |
-| Amazon S3 Fundamentals            | ✅ Completed    |
-| IAM Users & Groups                | ✅ Completed    |
-| IAM Policies & Least Privilege    | ✅ Completed    |
-| IAM Roles & Temporary Credentials | ✅ Completed    |
-| EC2 IAM Role → S3 Access          | ✅ Completed    |
-| EC2 Fundamentals                  | 🚧 In Progress |
-| VPC Networking                    | ⏳ Planned      |
-| CloudTrail Logging                | ⏳ Planned      |
-| GuardDuty Detection               | ⏳ Planned      |
-| Security Hub                      | ⏳ Planned      |
-| Security Automation               | ⏳ Planned      |
+| Lab / Project | Status |
+|---------------|--------|
+| AWS Account Security Baseline | ✅ Completed |
+| Amazon S3 Fundamentals | ✅ Completed |
+| IAM Users & Groups | ✅ Completed |
+| IAM Policies & Least Privilege | ✅ Completed |
+| IAM Roles & Temporary Credentials | ✅ Completed |
+| EC2 IAM Role → S3 Access | ✅ Completed |
+| EC2 Fundamentals | ✅ Completed |
+| VPC Networking Fundamentals | ✅ Completed |
+| Custom VPC Deployment | 🚧 Next |
+| CloudTrail Logging | ⏳ Planned |
+| GuardDuty Detection | ⏳ Planned |
+| Security Hub | ⏳ Planned |
+| Security Automation | ⏳ Planned |
 
 ---
 
@@ -221,14 +281,16 @@ This repository is supported by learning from:
 
 The repository maintains several documents to track the development of Project SkyShield:
 
-| Document                       | Purpose                                             |
-| ------------------------------ | --------------------------------------------------- |
-| [`ROADMAP.md`](ROADMAP.md)     | Long-term learning roadmap                          |
-| [`PROGRESS.md`](PROGRESS.md)   | Completed milestones and skills                     |
-| [`CHANGELOG.md`](CHANGELOG.md) | Major project changes and milestones                |
-| `00-Notes/Weekly-Journal/`     | Weekly reflections and lessons                      |
-| `00-Notes/Commands/`           | AWS and technical command references                |
-| `01-AWS/`                      | AWS labs, architecture, security and implementation |
+| Document | Purpose |
+|----------|---------|
+| [`ROADMAP.md`](ROADMAP.md) | Long-term learning roadmap |
+| [`PROGRESS.md`](PROGRESS.md) | Completed milestones and skills |
+| [`CHANGELOG.md`](CHANGELOG.md) | Major project changes and milestones |
+| `00-Notes/Weekly-Journal/` | Weekly reflections and lessons learned |
+| `00-Notes/Commands/` | AWS and technical command references |
+| `01-AWS/*/Architecture.md` | AWS service architecture explanations |
+| `01-AWS/*/Security.md` | Security concepts and production practices |
+| `01-AWS/` | AWS labs and implementation documentation |
 
 ---
 
@@ -264,17 +326,31 @@ Project SkyShield follows security-first principles throughout the learning jour
 
 **Phase 1 – AWS Foundations**
 
-### Completed
+### ✅ Completed
 
-* AWS Account Security Baseline
-* Amazon S3 Fundamentals
-* IAM Users, Groups and Policies
-* IAM Roles and Temporary Credentials
-* EC2 IAM Role Integration
+- AWS Account Security Baseline
+- Amazon S3 Fundamentals
+- IAM Users, Groups and Policies
+- IAM Roles and Temporary Credentials
+- EC2 Fundamentals
+- VPC Networking Fundamentals
 
-### Next
+### 🚧 Next
 
-**EC2 and VPC Fundamentals → Network Security → Cloud Security Monitoring**
+**Custom VPC → Network Segmentation → Cloud Security Monitoring**
+
+## 🗺️ Milestone Timeline
+
+| Milestone | Status |
+|-----------|--------|
+| AWS Account Security | ✅ |
+| Amazon S3 Fundamentals | ✅ |
+| IAM Users & Groups | ✅ |
+| IAM Roles & STS | ✅ |
+| EC2 Fundamentals | ✅ |
+| VPC Networking Fundamentals | ✅ |
+| Custom VPC | 🚧 |
+| Cloud Security Monitoring | ⏳ |
 
 ---
 
