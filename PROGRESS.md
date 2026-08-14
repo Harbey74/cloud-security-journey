@@ -159,30 +159,83 @@
 * [x] S3 Lifecycle Policy JSON
 * [x] S3 Command Reference
 * [x] IAM Command Reference
+* [x] EC2 Architecture Documentation
+* [x] EC2 Security Documentation
+* [x] VPC Architecture Documentation
+* [x] VPC Security Documentation
+* [x] EC2 Command Reference
+* [x] VPC Command Reference
+
+---
+
+## Milestone 4 – EC2 and VPC Fundamentals ✅
+
+### Completed
+
+- [x] Launched Amazon Linux 2023 EC2 Instance
+- [x] Connected to EC2 Using SSH
+- [x] Understood IAM Role Association
+- [x] Understood EC2 Instance Architecture
+- [x] Documented EC2 Architecture
+- [x] Documented EC2 Security Concepts
+- [x] Understood CIDR and Subnetting
+- [x] Understood VPC Architecture
+- [x] Understood Route Tables
+- [x] Understood Internet Gateways
+- [x] Understood NAT Gateway Architecture
+- [x] Understood Public vs Private Subnets
+- [x] Understood Security Groups
+- [x] Understood Network ACLs
+- [x] Documented VPC Architecture
+- [x] Documented VPC Security Concepts
+- [x] Verified AWS DNS Configuration
+- [x] Tested IPv4 vs IPv6 Connectivity
+- [x] Designed Production Three-Tier VPC Architecture
+
+### Skills Gained
+
+- EC2 Architecture
+- Elastic Network Interfaces (ENIs)
+- EBS Fundamentals
+- Security Groups
+- CIDR Planning
+- Subnet Design
+- Route Tables
+- Internet Gateways
+- NAT Gateway Concepts
+- Network ACLs
+- AWS DNS
+- IPv4 vs IPv6 Networking
+- Availability Zones
+- Multi-AZ Design
+- Three-Tier Network Architecture
+- Defense in Depth Networking
 
 ---
 
 ## Current Objective
 
-### Milestone 4 – EC2 and VPC Fundamentals
+### Milestone 5 – Custom VPC Implementation
 
-* [x] Launch Amazon Linux 2023 EC2 Instance
-* [x] Connect to EC2 Using SSH
-* [x] Understand IAM Role Association
-* [ ] Understand EC2 Instance Architecture
-* [ ] Understand Security Groups
-* [ ] Understand Key Pairs
-* [ ] Understand Elastic IPs
-* [ ] Understand VPC Architecture
-* [ ] Understand Subnets
-* [ ] Understand Route Tables
-* [ ] Understand Internet Gateways
-* [ ] Understand NAT Gateways
+- [ ] Create and Manage EC2 Key Pairs
+- [ ] Allocate and Associate an Elastic IP
+- [ ] Build a Custom VPC
+- [ ] Create Public and Private Subnets
+- [ ] Configure Public and Private Route Tables
+- [ ] Deploy an Internet Gateway
+- [ ] Deploy a NAT Gateway
+- [ ] Launch Public Web Server
+- [ ] Launch Private Application Server
+- [ ] Verify End-to-End Connectivity
+- [ ] Test Network Isolation
 
 ### Next Security Focus
 
-* [ ] EC2 Security Groups
-* [ ] Network Segmentation
-* [ ] VPC Security
-* [ ] Private vs Public Subnets
-* [ ] Secure EC2 Architecture
+- [ ] Secure Security Group Design
+- [ ] Network Segmentation
+- [ ] Private vs Public Subnet Enforcement
+- [ ] Secure EC2 Architecture
+- [ ] Multi-Layer Network Troubleshooting
+
+
+

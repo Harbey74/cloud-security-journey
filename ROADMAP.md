@@ -11,8 +11,9 @@
 * [x] IAM Policies and Policy Evaluation
 * [x] IAM Roles and Temporary Credentials
 * [x] EC2 Fundamentals
-* [ ] VPC Networking
-* [ ] AWS Networking Fundamentals
+* [x] VPC Networking
+* [x] AWS Networking Fundamentals
+* [ ] Custom VPC Deployment
 
 ### Phase 1 Security Focus
 
@@ -26,9 +27,9 @@
 * [x] EC2 IAM Roles
 * [x] S3 Access Control
 * [x] S3 Block Public Access
-* [ ] Security Groups
-* [ ] Network ACLs
-* [ ] VPC Security Fundamentals
+* [x] Security Groups
+* [x] Network ACLs
+* [x] VPC Security Fundamentals
 
 ---
 

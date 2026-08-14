@@ -117,6 +117,10 @@ It is about understanding:
 
 I believe this is the biggest shift in my thinking so far.
 
+## Engineering Mindset Shift
+
+This week I stopped thinking of AWS as a collection of commands and started thinking about the reasons behind its security features. Instead of asking, "How do I create a bucket?" I began asking, "Why was this feature designed this way, and what security problem does it solve?" That shift made me see cloud security as architecture and governance rather than configuration alone.
+
 ## Goals for Week 2
 -- Learn Lifecycle Policies in depth.
 -- Become comfortable writing JSON policy documents.

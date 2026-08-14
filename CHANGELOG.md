@@ -4,6 +4,44 @@ All notable changes and milestones in the Project SkyShield – Cloud Security E
 
 ---
 
+## [2026-08-14] – EC2 & VPC Networking Fundamentals
+
+### Added
+
+- EC2 architecture documentation.
+- EC2 security documentation.
+- VPC architecture documentation.
+- VPC security documentation.
+- EC2 and VPC networking reference documentation.
+- Three-tier VPC architecture design.
+- EC2 command reference.
+- VPC command reference.
+
+### Networking Concepts
+
+- Learned how EC2 components (AMI, ENI, EBS, Instance Types, and IMDSv2) work together.
+- Learned CIDR planning and subnet calculations.
+- Explored VPC architecture using the default VPC.
+- Learned Route Tables and local routing.
+- Explored Internet Gateway connectivity.
+- Learned NAT Gateway architecture for private workloads.
+- Compared public and private subnets.
+- Learned Security Groups and Network ACL behavior.
+- Explored AWS DNS using the Amazon-provided resolver (`172.31.0.2`).
+- Compared IPv4 and IPv6 connectivity.
+- Designed a production three-tier network architecture.
+
+### Validation
+
+- Inspected the default VPC and its CIDR configuration.
+- Verified subnet placement across multiple Availability Zones.
+- Inspected the main Route Table and Internet Gateway.
+- Verified Network ACL configuration.
+- Confirmed AWS DNS support and DNS hostnames.
+- Tested IPv4 connectivity using `curl -4`.
+- Verified IPv6 resolution but confirmed IPv6 connectivity was unavailable because the ENI had no IPv6 address assigned.
+- Traced traffic flow through Route Tables, Security Groups, and Network ACLs during troubleshooting exercises.
+
 ## [2026-08-10] – IAM Roles, Temporary Credentials & EC2 Integration
 
 ### Added
@@ -154,6 +192,6 @@ Throughout the journey, the project has progressively adopted the following secu
 
 ## Current Status
 
-Project SkyShield has progressed from basic AWS account setup and S3 fundamentals into **IAM identity security, role-based access control, temporary credentials, and EC2 workload identity**.
+Project SkyShield has progressed from AWS account setup and S3 fundamentals into **IAM identity security, role-based access control, temporary credentials, EC2 architecture, and VPC networking fundamentals**.
 
-The next major focus is **EC2 and VPC networking fundamentals**, followed by network security, AWS security monitoring services, automation, and cloud security engineering projects.
+The next major focus is **building a custom VPC with public and private subnets, Internet and NAT Gateways, and a production-style three-tier network architecture**, followed by AWS security monitoring services, automation, and cloud security engineering projects.

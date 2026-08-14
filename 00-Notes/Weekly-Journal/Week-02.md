@@ -52,6 +52,19 @@ but rather:
 
 I also learned that security and operational efficiency can reinforce each other. Using IAM Roles allows permissions to be centrally managed and temporary credentials to be automatically handled, avoiding the operational burden and security risks associated with managing long-lived access keys across multiple workloads.
 
+## Engineering Mindset Shift
+
+This week I stopped measuring success by whether an AWS operation worked and started evaluating whether it was securely designed. Instead of asking, "Can this EC2 instance access S3?" I began asking, "What is the minimum access this workload actually needs, and how can I reduce the blast radius if it is ever compromised?" That mindset helped me connect IAM theory with real-world security engineering.
+
+## Goals for Week 3
+
+- Understand EC2 networking fundamentals.
+- Learn CIDR planning and subnet calculations.
+- Explore VPC architecture using real AWS resources.
+- Understand Route Tables and Internet Gateways.
+- Compare Security Groups with Network ACLs.
+- Continue documenting architecture and security concepts in Project SkyShield.
+
 ## Key Takeaway
 
 This week's work helped me connect IAM theory with a real AWS workload. I was able to create an IAM Role, establish a trust relationship, attach least-privilege permissions, associate the role with an EC2 instance through an Instance Profile, obtain temporary credentials through IMDS, and successfully access an S3 bucket without storing long-lived credentials on the instance.
